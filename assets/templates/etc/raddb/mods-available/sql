@@ -76,7 +76,7 @@ sql {
 	#
 	server = "{{DB_HOST}}"
 	port = "{{DB_PORT}}"
-	login = "{{DB_USERNAME""
+	login = "{{DB_USERNAME}}"
 	password = "{{DB_PASSWORD}}"
 
 	# Database table configuration for everything except Oracle
