@@ -370,6 +370,7 @@ authorize {
 	#
 	#  See "Authorization Queries" in sql.conf
 	sql
+    monthlytrafficcounter
 
 	#
 	#  If you are using /etc/smbpasswd, and are also doing
