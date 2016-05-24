@@ -2,13 +2,12 @@ FROM ustclug/centos:7
 
 MAINTAINER Yifan Gao "git@gaoyifan.com"
 
-RUN yum install -y freeradius freeradius-mysql
-
 ENV CACHE_DIR="/etc/docker-freeradius"
 
 ENV TEMPLATES_DIR="${CACHE_DIR}/templates" \
     ATTRIBUTE_FIX_LIST="${CACHE_DIR}/attribute_fix_list" \
-    DEFAULT_ENV="${CACHE_DIR}/default_env"
+    DEFAULT_ENV="${CACHE_DIR}/default_env" \
+    BUILD_SCRIPT="${CACHE_DIR}/build.sh"
 
 COPY assets $CACHE_DIR
 
