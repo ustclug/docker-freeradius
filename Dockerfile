@@ -1,4 +1,4 @@
-FROM ustclug/centos:7
+FROM centos:7
 
 MAINTAINER Yifan Gao "git@gaoyifan.com"
 
