@@ -74,13 +74,13 @@ sql {
 
 	# Connection info:
 	#
-	server = "{{DB_HOST}}"
-	port = "{{DB_PORT}}"
-	login = "{{DB_USERNAME}}"
-	password = "{{DB_PASSWORD}}"
+	server = "{{MYSQL_HOST}}"
+	port = "{{MYSQL_PORT}}"
+	login = "{{MYSQL_USERNAME}}"
+	password = "{{MYSQL_PASSWORD}}"
 
 	# Database table configuration for everything except Oracle
-	radius_db = "{{DB_DATEBASE}}"
+	radius_db = "{{MYSQL_DATEBASE}}"
 
 	# If you are using Oracle then use this instead
 #	radius_db = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SID=your_sid)))"

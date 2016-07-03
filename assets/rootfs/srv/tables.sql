@@ -13,8 +13,11 @@
 #
 # Table structure for table 'radacct'
 #
+CREATE DATABASE IF NOT EXISTS {{MYSQL_DATEBASE}};
 
-CREATE TABLE radacct (
+USE {{MYSQL_DATEBASE}};
+
+CREATE TABLE IF NOT EXISTS radacct (
   radacctid bigint(21) NOT NULL auto_increment,
   acctsessionid varchar(64) NOT NULL default '',
   acctuniqueid varchar(32) NOT NULL default '',
@@ -56,7 +59,7 @@ CREATE TABLE radacct (
 # Table structure for table 'radcheck'
 #
 
-CREATE TABLE radcheck (
+CREATE TABLE IF NOT EXISTS radcheck (
   id int(11) unsigned NOT NULL auto_increment,
   username varchar(64) NOT NULL default '',
   attribute varchar(64)  NOT NULL default '',
@@ -70,7 +73,7 @@ CREATE TABLE radcheck (
 # Table structure for table 'radgroupcheck'
 #
 
-CREATE TABLE radgroupcheck (
+CREATE TABLE IF NOT EXISTS radgroupcheck (
   id int(11) unsigned NOT NULL auto_increment,
   groupname varchar(64) NOT NULL default '',
   attribute varchar(64)  NOT NULL default '',
@@ -84,7 +87,7 @@ CREATE TABLE radgroupcheck (
 # Table structure for table 'radgroupreply'
 #
 
-CREATE TABLE radgroupreply (
+CREATE TABLE IF NOT EXISTS radgroupreply (
   id int(11) unsigned NOT NULL auto_increment,
   groupname varchar(64) NOT NULL default '',
   attribute varchar(64)  NOT NULL default '',
@@ -98,7 +101,7 @@ CREATE TABLE radgroupreply (
 # Table structure for table 'radreply'
 #
 
-CREATE TABLE radreply (
+CREATE TABLE IF NOT EXISTS radreply (
   id int(11) unsigned NOT NULL auto_increment,
   username varchar(64) NOT NULL default '',
   attribute varchar(64) NOT NULL default '',
@@ -113,7 +116,7 @@ CREATE TABLE radreply (
 # Table structure for table 'radusergroup'
 #
 
-CREATE TABLE radusergroup (
+CREATE TABLE IF NOT EXISTS radusergroup (
   username varchar(64) NOT NULL default '',
   groupname varchar(64) NOT NULL default '',
   priority int(11) NOT NULL default '1',
@@ -123,7 +126,7 @@ CREATE TABLE radusergroup (
 #
 # Table structure for table 'radpostauth'
 #
-CREATE TABLE radpostauth (
+CREATE TABLE IF NOT EXISTS radpostauth (
   id int(11) NOT NULL auto_increment,
   username varchar(64) NOT NULL default '',
   pass varchar(64) NOT NULL default '',
@@ -135,7 +138,7 @@ CREATE TABLE radpostauth (
 #
 # Table structure for table 'nas'
 #
-CREATE TABLE nas (
+CREATE TABLE IF NOT EXISTS nas (
   id int(10) NOT NULL auto_increment,
   nasname varchar(128) NOT NULL,
   shortname varchar(32),
