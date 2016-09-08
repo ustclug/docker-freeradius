@@ -1,3 +1,8 @@
 #!/bin/bash
-yum install -y freeradius freeradius-mysql freeradius-utils sysvinit-tools mariadb
-yum clean all
+apk update
+apk add freeradius-mysql mariadb-client
+apk add --virtual build-dependencies openssl make
+cd /etc/raddb/certs
+./bootstrap && make
+apk del --purge build-dependencies
+rm -rf /var/cache/apk/*
