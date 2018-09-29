@@ -372,7 +372,7 @@ authorize {
 	sql
 	if({{ENABLE_DEFAULT_MAX_MONTHLY_TRAFFIC}}){
 		update control {
-			Max-Monthly-Traffic := {{DEFAULT_MAX_MONTHLY_TRAFFIC}}
+			Max-Monthly-Traffic = {{DEFAULT_MAX_MONTHLY_TRAFFIC}}
 		}
 	}
 	monthlytrafficcounter
