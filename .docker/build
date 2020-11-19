@@ -1,7 +1,8 @@
 #!/bin/bash
 apk update
-apk add freeradius-mysql mariadb-client acct
+apk add freeradius-mysql freeradius-eap mariadb-client acct
 apk add --virtual build-dependencies openssl make
+patch /etc/raddb/radiusd.conf $ASSETS_DIR/radiusd.conf.patch
 cd /etc/raddb/certs
 ./bootstrap && make
 apk del --purge build-dependencies
