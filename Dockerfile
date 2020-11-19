@@ -1,6 +1,6 @@
 FROM smartentry/alpine:3.11-0.4.3
 
-MAINTAINER Zhaofeng Yang <yangzhaofengsteven@gmail.com>
+MAINTAINER Yifan Gao <docker@yfgao.com>
 
 COPY .docker $ASSETS_DIR
 
