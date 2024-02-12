@@ -5,8 +5,19 @@ PREPARE s FROM @sql;
 EXECUTE s;
 DEALLOCATE PREPARE s;
 
-ALTER USER '{{MYSQL_USERNAME}}'@'%' IDENTIFIED BY '{{MYSQL_PASSWORD}}';
-GRANT SELECT ON {{MYSQL_DATEBASE}}.* TO '{{MYSQL_USERNAME}}'@'%';
+SET @sql_more2="ALTER USER '{{MYSQL_USERNAME}}'@'%' IDENTIFIED BY '{{MYSQL_PASSWORD}}';";
+SET @sql_less2="select now();";
+SET @sql2=IF(@@VERSION>="5.7.0",@sql_more2,@sql_less2);
+PREPARE s FROM @sql2;
+EXECUTE s;
+DEALLOCATE PREPARE s;
+
+SET @sql_more3="GRANT SELECT ON {{MYSQL_DATEBASE}}.* TO '{{MYSQL_USERNAME}}'@'%';";
+SET @sql_less3="select now();";
+SET @sql3=IF(@@VERSION>="8.0.0",@sql_more3,@sql_less3);
+PREPARE s FROM @sql3;
+EXECUTE s;
+DEALLOCATE PREPARE s;
 
 GRANT ALL on {{MYSQL_DATEBASE}}.radacct TO '{{MYSQL_USERNAME}}'@'%';
 GRANT ALL on {{MYSQL_DATEBASE}}.radpostauth TO '{{MYSQL_USERNAME}}'@'%';
