@@ -1,3 +1,5 @@
+SET @sql_empty="DO 1;";
+
 SET @sql_more="CREATE USER IF NOT EXISTS '{{MYSQL_USERNAME}}'@'%' IDENTIFIED WITH {{MYSQL_IDENTIFY_PLUGIN}} BY '{{MYSQL_PASSWORD}}';";
 SET @sql_less="GRANT SELECT ON {{MYSQL_DATEBASE}}.* TO '{{MYSQL_USERNAME}}'@'%' IDENTIFIED BY '{{MYSQL_PASSWORD}}';";
 SET @sql=IF(@@VERSION>="8.0.0",@sql_more,@sql_less);
@@ -6,15 +8,13 @@ EXECUTE s;
 DEALLOCATE PREPARE s;
 
 SET @sql_more2="ALTER USER '{{MYSQL_USERNAME}}'@'%' IDENTIFIED BY '{{MYSQL_PASSWORD}}';";
-SET @sql_less2="select now();";
-SET @sql2=IF(@@VERSION>="5.7.0",@sql_more2,@sql_less2);
+SET @sql2=IF(@@VERSION>="5.7.0",@sql_more2,@sql_empty);
 PREPARE s FROM @sql2;
 EXECUTE s;
 DEALLOCATE PREPARE s;
 
 SET @sql_more3="GRANT SELECT ON {{MYSQL_DATEBASE}}.* TO '{{MYSQL_USERNAME}}'@'%';";
-SET @sql_less3="select now();";
-SET @sql3=IF(@@VERSION>="8.0.0",@sql_more3,@sql_less3);
+SET @sql3=IF(@@VERSION>="8.0.0",@sql_more3,@sql_empty);
 PREPARE s FROM @sql3;
 EXECUTE s;
 DEALLOCATE PREPARE s;
