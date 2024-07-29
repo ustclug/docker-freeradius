@@ -45,11 +45,10 @@ CREATE TABLE IF NOT EXISTS radacct (
   framedipaddress varchar(15) NOT NULL default '',
   PRIMARY KEY (radacctid),
   UNIQUE KEY acctuniqueid (acctuniqueid),
-  KEY username (username),
+  KEY username_acctstarttime (username, acctstarttime),
   KEY framedipaddress (framedipaddress),
   KEY acctsessionid (acctsessionid),
   KEY acctsessiontime (acctsessiontime),
-  KEY acctstarttime (acctstarttime),
   KEY acctinterval (acctinterval),
   KEY acctstoptime (acctstoptime),
   KEY nasipaddress (nasipaddress)
